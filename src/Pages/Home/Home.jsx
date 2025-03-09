@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import bg_3 from "../../assets/images/bg_3.jpg";
 import bg_5 from "../../assets/images/bg_5.jpg";
@@ -18,10 +18,13 @@ import destination_3 from "../../assets/images/destination-3.jpg";
 import destination_4 from "../../assets/images/destination-4.jpg";
 import destination_5 from "../../assets/images/destination-5.jpg";
 import destination_6 from "../../assets/images/destination-6.jpg";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
   const [height, setHeight] = useState(window.innerHeight);
-
+  const aboutRef = useRef(null);
+  const homeRef = useRef(null);
+  const destinationRef = useRef(null);
   // Update height on window resize
   useEffect(() => {
     const updateHeight = () => setHeight(window.innerHeight);
@@ -31,6 +34,25 @@ const Home = () => {
     // Cleanup event listener on component unmount
     return () => window.removeEventListener("resize", updateHeight);
   }, []);
+  const scrollToSection = (ref) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  // Get query parameter from URL
+  const location = useLocation();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    if (searchParams.has("about")) {
+      scrollToSection(aboutRef);
+    }else if (searchParams.has("destinations")) {
+      scrollToSection(destinationRef);
+    }else{
+      scrollToSection(homeRef);
+    }
+  }, [location]); // Runs when the URL changes
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -41,7 +63,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div  ref={homeRef} id="home">
       <Navbar />
       <div
         className="hero-wrap js-fullheight"
@@ -281,7 +303,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="ftco-section">
+      <section ref={destinationRef} id="destination" className="ftco-section">
         <div className="container">
           <div className="row justify-content-center pb-4">
             <div className="col-md-12 heading-section text-center ftco-animate fadeInUp ftco-animated">
@@ -410,7 +432,7 @@ const Home = () => {
         </div>
       </section> */}
 
-      <section className="ftco-section ftco-about ftco-no-pt img">
+      <section  ref={aboutRef} id="about" className="ftco-section ftco-about ftco-no-pt img">
         <div className="container">
           <div className="row d-flex">
             <div className="col-md-12 about-intro">
