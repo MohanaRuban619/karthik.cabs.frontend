@@ -19,6 +19,7 @@ import destination_4 from "../../assets/images/destination-4.jpg";
 import destination_5 from "../../assets/images/destination-5.jpg";
 import destination_6 from "../../assets/images/destination-6.jpg";
 import { useLocation } from "react-router-dom";
+import DestinationsCarousel from "../../Components/Destinantion/Destinantion";
 
 const Home = () => {
   const [height, setHeight] = useState(window.innerHeight);
@@ -193,7 +194,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section
+      <DestinationsCarousel bg_3={bg_3} place_1={place_1} place_2={place_2} place_3={place_3} place_4={place_4} />
+      {/* <section
         className="ftco-section img ftco-select-destination"
         style={{ backgroundImage: `url(${bg_3})` }}
       >
@@ -301,7 +303,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section ref={destinationRef} id="destination" className="ftco-section">
         <div className="container">
