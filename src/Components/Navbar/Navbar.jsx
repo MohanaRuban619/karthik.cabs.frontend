@@ -42,7 +42,7 @@ const Navbar = () => {
     if (window.location.pathname === '/destination' || searchParams.has("destinations")) {
       setselected('destination');
     }
-    if (window.location.pathname === '/contact') {
+    if (window.location.pathname === '/contact-us') {
       setselected('contact');
     }
   },[window.location.pathname,location])
@@ -77,7 +77,7 @@ const Navbar = () => {
             <li className={`nav-item ${selected === 'home' ? 'active' : ''}`}><Link to="/" className="nav-link">Home</Link></li>
             <li className={`nav-item ${selected === 'destination' ? 'active' : ''}`}><Link to="/?destinations" className="nav-link">Destination</Link></li>
             <li className={`nav-item ${selected === 'about' ? 'active' : ''}`}><Link to="/?about" className="nav-link">About</Link></li>
-            <li className="nav-item "><Link to="#" className="nav-link">Contact</Link></li>
+            <li className={`nav-item ${selected === 'contact' ? 'active' : ''}`}><Link to="/contact-us" className="nav-link">Contact</Link></li>
           </ul>
         </div>
       </div>
