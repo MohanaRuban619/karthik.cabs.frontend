@@ -789,8 +789,8 @@ const Home = () => {
 								{/* <li><a  className="py-2 d-block">Online Enquiry</a></li> */}
 								<li><a  className="py-2 d-block">General Enquiries</a></li>
 								{/* <li><a  className="py-2 d-block">Booking Conditions</a></li> */}
-								<li><a  className="py-2 d-block">Privacy and Policy</a></li>
-								<li><a  className="py-2 d-block">Refund Policy</a></li>
+{/* 								<li><a  className="py-2 d-block">Privacy and Policy</a></li> */}
+{/* 								<li><a  className="py-2 d-block">Refund Policy</a></li> */}
 								<li><a  className="py-2 d-block">Call Us</a></li>
 							</ul>
 						</div>
