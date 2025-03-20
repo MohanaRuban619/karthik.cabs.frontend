@@ -20,6 +20,7 @@ import destination_5 from "../../assets/images/destination-5.jpg";
 import destination_6 from "../../assets/images/destination-6.jpg";
 import { useLocation } from "react-router-dom";
 import DestinationsCarousel from "../../Components/Destinantion/Destinantion";
+import ReviewQR from "../../Components/ReviewQR/ReviewQR";
 
 const Home = () => {
   const [height, setHeight] = useState(window.innerHeight);
@@ -463,6 +464,7 @@ const Home = () => {
                           Book Your Destination
                         </a>
                       </p> */}
+                      
                     </div>
                   </div>
                 </div>
@@ -471,7 +473,30 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+      <section    className="ftco-section ftco-about ftco-no-pt img">
+        <div className="container">
+          <div className="row d-flex">
+            <div className="col-md-12 about-intro">
+              <div className="row">
+                {/* <div className="col-md-6 d-flex align-items-stretch">
+                  <div
+                    className="img d-flex w-100 align-items-center justify-content-center"
+                    style={{ backgroundImage: `url(${about_1})` }}
+                  ></div>
+                </div> */}
+                <div className="col-md-12 pl-md-5 py-5">
+                  <div className="row justify-content-start pb-3">
+                    <div className="col-md-12 heading-section ftco-animate fadeInUp ftco-animated">
+                    <ReviewQR />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+     
       {/* <section
         className="ftco-section testimony-section bg-bottom"
         style={{ backgroundImage: `url(${bg_1})` }}
